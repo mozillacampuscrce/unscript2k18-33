@@ -109,14 +109,7 @@ public class PlacementFragment extends AppCompatActivity implements View.OnClick
     //this function will get the pdf from the storage
     private void getPDF() {
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ContextCompat.checkSelfPermission(this,
-                Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                    Uri.parse("package:" + getPackageName()));
-            startActivity(intent);
-            return;
-        }
+
 
         //creating an intent for file chooser
         Intent intent = new Intent();
