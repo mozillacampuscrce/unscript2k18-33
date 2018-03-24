@@ -19,4 +19,5 @@ public class Dashboard extends Fragment{
         return inflater.inflate(R.layout.dashboard,
                 container, false);
     }
+
 }
