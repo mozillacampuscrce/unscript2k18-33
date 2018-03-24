@@ -124,13 +124,7 @@ public class PlacementFragment extends AppCompatActivity implements View.OnClick
         mDatabaseReference = FirebaseDatabase.getInstance().getReference(UploadConstants.DATABASE_PATH_UPLOADS);
 
 
-        textViewStatus = (TextView) findViewById(R.id.textViewStatus);
-        editTextFilename = (EditText) findViewById(R.id.editTextFileName);
-        progressBar = (ProgressBar) findViewById(R.id.progressbar);
 
-
-        findViewById(R.id.buttonUploadFile).setOnClickListener(this);
-        findViewById(R.id.textViewUploads).setOnClickListener(this);
     }
 
     //this function will get the pdf from the storage
@@ -197,9 +191,7 @@ public class PlacementFragment extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.buttonUploadFile:
-                getPDF();
-                break;
+
             
         }
     }
