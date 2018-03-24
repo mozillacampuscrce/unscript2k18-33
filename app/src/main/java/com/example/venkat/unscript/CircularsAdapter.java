@@ -13,14 +13,14 @@ import java.util.List;
  * Created by shantanu on 25/3/18.
  */
 
-public class CircularsAdapter extends RecyclerView.Adapter<CircularsAdapter> {
+public class CircularsAdapter extends RecyclerView.Adapter<CircularsAdapter.ViewHolder> {
     List<Circulars> circularsList;
     Context context;
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View rootView= LayoutInflater.from(parent.getContext()).inflate(R.layout.circulars_list_item,parent,false);
-        return new ViewHolder(rootView);
+        return new RecyclerView.ViewHolder(rootView);
     }
 
     @Override
