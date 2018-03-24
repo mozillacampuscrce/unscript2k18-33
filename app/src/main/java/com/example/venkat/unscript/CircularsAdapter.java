@@ -5,4 +5,5 @@ package com.example.venkat.unscript;
  */
 
 public class CircularsAdapter {
+
 }
