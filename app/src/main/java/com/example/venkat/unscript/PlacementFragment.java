@@ -1,6 +1,8 @@
 package com.example.venkat.unscript;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -76,7 +78,7 @@ import com.google.firebase.storage.UploadTask;
 
 public class PlacementFragment extends AppCompatActivity implements View.OnClickListener {
 
-    //this is the pic pdf code used in file chooser
+
     final static int PICK_PDF_CODE = 2342;
 
     //these are the views
@@ -84,7 +86,8 @@ public class PlacementFragment extends AppCompatActivity implements View.OnClick
     EditText editTextFilename;
     ProgressBar progressBar;
 
-    //the firebase objects for storage and database
+
+
     StorageReference mStorageReference;
     DatabaseReference mDatabaseReference;
     @Override
@@ -97,8 +100,15 @@ public class PlacementFragment extends AppCompatActivity implements View.OnClick
         int id = item.getItemId();
 
         if (id == R.id.mybutton) {
-            // do something here
-            getPDF();
+            AlertDialog alertDialog=new AlertDialog.Builder(PlacementFragment.this).create();
+            alertDialog.setTitle("Upload Offer Letter");
+            alertDialog.setMessage("Choose a file from local storage");
+            alertDialog.setButton("Select", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                   getPDF();
+                }
+            });
+                alertDialog.show();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -109,16 +119,16 @@ public class PlacementFragment extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.fragment_placement);
 
 
-        //getting firebase objects
+
         mStorageReference = FirebaseStorage.getInstance().getReference();
         mDatabaseReference = FirebaseDatabase.getInstance().getReference(UploadConstants.DATABASE_PATH_UPLOADS);
 
-        //getting the views
+
         textViewStatus = (TextView) findViewById(R.id.textViewStatus);
         editTextFilename = (EditText) findViewById(R.id.editTextFileName);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
 
-        //attaching listeners to views
+
         findViewById(R.id.buttonUploadFile).setOnClickListener(this);
         findViewById(R.id.textViewUploads).setOnClickListener(this);
     }
