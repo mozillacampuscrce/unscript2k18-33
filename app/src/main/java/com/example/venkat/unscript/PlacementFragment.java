@@ -16,7 +16,7 @@ public class PlacementFragment extends Fragment{
 
     public PlacementFragment()
     {
-//DEkh bantai
+//DEkh bantaasdasd
     }
 
     @Nullable
