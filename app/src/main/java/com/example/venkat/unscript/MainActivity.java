@@ -101,7 +101,11 @@ public class MainActivity extends AppCompatActivity
             Intent intent =new Intent(MainActivity.this,PlacementFragment.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_calendar) {
+            Calendar fragment1 = new Calendar();
+            FragmentTransaction cal = getSupportFragmentManager().beginTransaction();
+            cal.add(R.id.lay,fragment1);
+            cal.commit();
 
         } else if (id == R.id.nav_send) {
 
