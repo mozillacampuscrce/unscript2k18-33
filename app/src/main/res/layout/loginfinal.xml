@@ -32,6 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:text="Login"
+        android:id="@+id/loginfinal"
         android:layout_gravity="center_horizontal"
         />
 

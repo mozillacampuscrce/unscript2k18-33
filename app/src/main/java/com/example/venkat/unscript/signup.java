@@ -21,10 +21,12 @@ public class signup extends AppCompatActivity {
     String email;
     String phn;
     long phnno;
+    Button submitB;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        submitB=(Button) findViewById(R.id.submitbutton);
         TextView name=(TextView) findViewById(R.id.fullname);
         fullname=(String) name.getText();
         TextView rollno=(TextView) findViewById(R.id.rollno);
@@ -35,13 +37,13 @@ public class signup extends AppCompatActivity {
         email=(String) em.getText();
         TextView phone=(TextView) findViewById(R.id.phoneno);
         phn=(String ) phone.getText();
+        setContentView(R.layout.activity_login);
 
-        Button submit=(Button) findViewById(R.id.submitbutton);
-        submit.setOnClickListener(new View.OnClickListener() {
+       submitB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"Successful",Toast.LENGTH_SHORT).show();
-                finishActivity(R.layout.activity_login);
+                Toast.makeText(getApplicationContext(),"Hi",Toast.LENGTH_SHORT).show();
+
             }
         });
     }

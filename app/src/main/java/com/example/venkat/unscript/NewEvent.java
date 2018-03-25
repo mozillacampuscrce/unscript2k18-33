@@ -39,7 +39,7 @@ public class NewEvent extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_new_event1);
         btnpk= (Button) findViewById(R.id.btnpick);
         btnupload= (Button) findViewById(R.id.upload);
         event=(EditText) findViewById(R.id.eventname);
@@ -53,7 +53,6 @@ public class NewEvent extends AppCompatActivity {
                 Intent i = new Intent(
                         Intent.ACTION_PICK,
                         android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
                 startActivityForResult(i, PICK_IMAGE);
             }
         });
@@ -62,28 +61,19 @@ public class NewEvent extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
-
         if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && null != data) {
             Uri selectedImage = data.getData();
             String[] filePathColumn = { MediaStore.Images.Media.DATA };
-
             Cursor cursor = getContentResolver().query(selectedImage,
                     filePathColumn, null, null, null);
             cursor.moveToFirst();
-
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
             final String picturePath = cursor.getString(columnIndex);
             cursor.close();
-
             ImageView imageView = (ImageView) findViewById(R.id.imgView);
             imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
             String resName = getResources().getResourceEntryName(R.id.imgView);
-            // Toast.makeText(getApplicationContext(), picturePath, Toast.LENGTH_LONG).show();
-            //event.setText("SET");
-
-
             btnupload.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -102,7 +92,7 @@ public class NewEvent extends AppCompatActivity {
                     } else {
                         mProgressDialog.setMessage("Sending Request...");
                         mProgressDialog.show();
-                        Uri file = data.getData();//Uri.fromFile(new File(String.valueOf(new File(picturePath))));
+                        Uri file = data.getData();
                         StorageReference riversRef = storageRef.child("images/" + event.getText() + "/poster.jpg");
                         riversRef.putFile(file)
                                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -128,10 +118,9 @@ public class NewEvent extends AppCompatActivity {
                                                     }
                                                 });
                                         mProgressDialog.dismiss();
+                                        finish();
                                         Toast.makeText(NewEvent.this, "Request Sent", Toast.LENGTH_SHORT).show();
-                                        //finish();
-                                        downloadUrl = taskSnapshot.getDownloadUrl();
-                                        event.setText(String.valueOf(downloadUrl));
+                                        //downloadUrl = taskSnapshot.getDownloadUrl()
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
