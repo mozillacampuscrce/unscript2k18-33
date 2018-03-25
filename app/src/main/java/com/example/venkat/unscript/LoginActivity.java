@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.roles);
+                setContentView(R.layout.loginfinal);
             }
         });
 
@@ -44,14 +44,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        //fab.setOnClickListener(new View.OnClickListener() {
-          //  @Override
-            //public void onClick(View view) {
-              //  Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                //        .setAction("Action", null).show();
-           // }
-       // });
     }
 
 }
