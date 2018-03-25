@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.roles);
+                setContentView(R.layout.loginfinal);
             }
         });
 
