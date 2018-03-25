@@ -37,7 +37,8 @@
         </activity>
         <activity android:name=".calling" />
         <activity android:name=".NewEvent" />
-        <activity android:name=".Payment"></activity>
+        <activity android:name=".Payment" />
+        <activity android:name=".Events"></activity>
     </application>
 
 </manifest>
