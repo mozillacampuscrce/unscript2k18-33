@@ -6,12 +6,17 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.EventLog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.Toast;
 
+import com.applandeo.materialcalendarview.EventDay;
+import com.github.sundeepk.compactcalendarview.CompactCalendarView;
+import com.github.sundeepk.compactcalendarview.domain.Event;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -33,14 +38,11 @@ import com.google.firebase.firestore.QuerySnapshot;
  */
 
 public class Calendar extends Fragment {
-    CalendarView mcalen;
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    CollectionReference cr = db.collection("calendar");
 
+    CompactCalendarView compactCalendarView ;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mcalen = (CalendarView)getView().findViewById(R.id.calendarView);
         return inflater.inflate(R.layout.calendar,
                 container, false);
     }
@@ -48,21 +50,14 @@ public class Calendar extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
-        cr.addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
-                Log.d("Snapshot",documentSnapshots.getDocuments().toString());
-                for(DocumentSnapshot dc : documentSnapshots.getDocuments()){
-                    Log.d("for loop",dc.toString());
-                }
-            }
-        });
+        compactCalendarView = (CompactCalendarView)getView().findViewById(R.id.compactcalendar_view);
+        Event ev1 = new Event(Color.BLACK, 1522175400L, "Some extra data that I want to store.");
+        compactCalendarView.addEvent(ev1);
+        compactCalendarView.setUseThreeLetterAbbreviation(true);
+        Toast.makeText(getContext(),ev1.getData().toString(),Toast.LENGTH_LONG).show();
     }
 
-    CalendarView calendar=(CalendarView) getView().findViewById(R.id.calendarView);
-    long date;
+
 
 
 }
