@@ -63,8 +63,10 @@ public class Admin extends Fragment {
 
                     }
                 });
-        ls.add("hello");
-        ls.add("World");
+        ls.add("EDC");
+        ls.add("CODE CELL");
+        ls.add("E-CELL");
+        ls.add("WOMEN-DEVELOPMENT");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(ls);
         recyclerView.setAdapter(recyclerViewAdapter);
     }
