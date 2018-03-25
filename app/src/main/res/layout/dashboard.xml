@@ -165,6 +165,7 @@
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
+                android:layout_marginTop="10dp"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -180,6 +181,32 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_below="@id/tv_info"
+                        android:id="@+id/tv_resume"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Year"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_below="@id/tv_info"
+                        android:id="@+id/resume"
+                        android:text="2016-17"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/tv_roll"/>
+                    <Button
+                        android:id="@+id/bu_resume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="upload"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

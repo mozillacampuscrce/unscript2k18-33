@@ -110,7 +110,11 @@ public class MainActivity extends AppCompatActivity
             cal.add(R.id.lay,fragment1);
             cal.commit();
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_admin) {
+            Admin fragment2 = new Admin();
+            FragmentTransaction cal = getSupportFragmentManager().beginTransaction();
+            cal.add(R.id.lay,fragment2);
+            cal.commit();
 
         }
 
