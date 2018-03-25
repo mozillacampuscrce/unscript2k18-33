@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.loginfinal);
+                setContentView(R.layout.activity_signup1);
             }
         });
 
@@ -38,7 +38,8 @@ public class LoginActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.signup);
+                Intent intent = new Intent(LoginActivity.this,signup1.class);
+                startActivity(intent);
             }
         });
 

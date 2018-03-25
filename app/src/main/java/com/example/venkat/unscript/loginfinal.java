@@ -22,6 +22,7 @@ public class loginfinal extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.loginfinal);
         SharedPreferences shared = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         final String channel = (shared.getString("status", ""));
 
@@ -29,14 +30,9 @@ public class loginfinal extends AppCompatActivity {
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
-                Toast(loginfinal.this,"Firebase Retrieval error",Toast.LENGTH_LONG).show();
-
-
+            public void onClick(View v) {
+                Toast.makeText(loginfinal.this,"Firebase Error",Toast.LENGTH_LONG).show();
             }
-
-
         });
     }
 
