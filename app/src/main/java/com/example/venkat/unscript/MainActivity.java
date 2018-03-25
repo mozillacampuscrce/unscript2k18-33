@@ -96,6 +96,9 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
 
+            Intent intent =new Intent(MainActivity.this,NewEvent.class);
+            startActivity(intent);
+
         } else if (id == R.id.nav_placements) {
 
             Intent intent =new Intent(MainActivity.this,PlacementFragment.class);
